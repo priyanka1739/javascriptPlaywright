@@ -7,6 +7,7 @@ test('access', async({page})=>{
     await page.getByRole('button', {name:"Log In to Sandbox"}).click();
     await page.locator("[title ='Service Console']").waitFor();
     await page.locator("[title ='Reports']").click();
+    await page.pause();
 
 
 });

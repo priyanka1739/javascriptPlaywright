@@ -41,3 +41,13 @@ test('access', async ({ page }) => {
     await expect(page.getByText("Thank you for your order!")).toBeVisible();
 
 });
+
+
+test.only('Invalid credential', async({page})=>{
+    await page.goto("https://www.saucedemo.com/");
+    await page.locator("#user-name").fill("abc");
+    await page.locator("#password").fill("abc");
+    await page.locator("#login-button").click();
+    await page.pause();
+    await expect(page.locator('[data-test="error"]')).toHaveText("Epic sadface: Username and password do not match any user in this service");
+})

@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-
 test('access', async ({ page }) => {
 
     // https://www.saucedemo.com/

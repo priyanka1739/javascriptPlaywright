@@ -3,7 +3,7 @@ import { link } from 'fs';
 
 
 test('ASU tuition cal', async({page})=>{
-    await page.goto("https://qa.asuonline.asu.edu/what-it-costs");
+    await page.goto("https://asuonline.asu.edu/what-it-costs");
 
     const tuitionresident =page.locator("[data-cy = '“tuition-calculator-Resident-dropdown”']");
     const tuitionresidentbutton= tuitionresident.locator("button");
@@ -70,6 +70,8 @@ test('ASU tuition cal', async({page})=>{
     // academic yearDropdown in modal
     const nonresident= modal.getByRole('tab', {name: 'Non-Resident tuition' });
     await nonresident.click();
+    // await page.pause();
+    await modal.locator("[data-cy = 'tuition-calculator-credits-slider']").fill('6');
     const yeardropdown = modal.locator('#calc-academic-year-nores button');
     await yeardropdown.click();   
     const listbox = page.locator('#calc-academic-year-nores_typeahead__listbox');
